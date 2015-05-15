@@ -29,13 +29,24 @@ namespace AnimeDesktop
 
 		private void Window_Loaded(object sender, RoutedEventArgs e)
 		{
+			//TODO: ListBox not scrollable (Stackpanel height not set to parent)
+			Visibility = Visibility.Hidden;
+			MessageDialog.ShowMessage("Starting", "Initializing...");
 			var anime = new AnimeMobile();
 			new Thread(() =>
 			{
 				anime.Initialize();
+				MessageDialog.ShowMessage("Starting", "Parsing " + anime.Animes.Count + " Animes");
 				InvokeUi(() =>
 				{
-					txtBlock.Text += anime.Animes.Count;
+					foreach (var anim in anime.Animes)
+						AnimeListBox.Items.Add(anim.Title);
+					MessageDialog.ShowMessage("Starting", "Done!");
+					Thread.Sleep(1500);
+					MessageDialog.CloseDialog();
+					Visibility = Visibility.Visible;
+					ShowInTaskbar = true;
+					Activate();
 				});
 			}).Start();
 		}

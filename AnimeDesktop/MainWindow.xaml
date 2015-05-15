@@ -5,8 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AnimeDesktop"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525" Loaded="Window_Loaded">
-    <Grid>
-        <TextBlock x:Name="txtBlock" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Anime Count: "/>
-    </Grid>
+        Title="AnimeDesktop" Height="350" Width="525" Loaded="Window_Loaded" ShowInTaskbar="False">
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="Auto"/>
+			<ColumnDefinition Width="*"/>
+		</Grid.ColumnDefinitions>
+
+		<Grid x:Name="NavGrid" Grid.Column="0" HorizontalAlignment="Center" Margin="10">
+			<StackPanel Height="{Binding Path=ActualHeight, ElementName=NavGrid}">
+				<Expander Header="All Animes" x:Name="MenuExpander" >
+					<ListBox x:Name="AnimeListBox" Margin="0,0,0,2"  Background="LightGray">
+					</ListBox>
+				</Expander>
+				<Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+        Content="Search Animes" />
+			</StackPanel>
+		</Grid>
+		<Grid x:Name="ContentWindow" Grid.Column="1">
+			
+		</Grid>
+	</Grid>
 </Window>
