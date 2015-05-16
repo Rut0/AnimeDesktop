@@ -11,7 +11,7 @@ using Application = System.Windows.Application;
 
 namespace AnimeDesktop.Sources
 {
-	class AnimeMobile : AnimeSource
+	public class AnimeMobile : AnimeSource
 	{
 		public override void Initialize()
 		{
@@ -31,10 +31,24 @@ namespace AnimeDesktop.Sources
 				Letter = anime["Letter"].ToString(),
 				Language = int.Parse(anime["Language"].ToString()),
 				Status = int.Parse(anime["Status"].ToString()),
-				Alternatives = anime["Alternatives"].ToString().Split(new [] {','}, StringSplitOptions.RemoveEmptyEntries),
-				Categories = anime["Categories"].ToString().Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries)
+				Alternatives = anime["Alternatives"].ToString().Split(new [] {','}, StringSplitOptions.RemoveEmptyEntries).ToList(),
+				Categories = anime["Categories"].ToString().Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries).ToList()
 			};
 		}
+
+		public override IEnumerable<Anime> SearchAnime(string term)
+		{
+			var returned = new List<string>();
+			foreach (var anime in Cache.AnimeMobile.Animes)
+			{
+				if ((anime.Title.ToLower().Contains(term.ToLower()) ||
+				    anime.Alternatives.FirstOrDefault(alt => alt.ToLower().Contains(term.ToLower())) != null) && !returned.Contains(anime.Title))
+				{
+					returned.Add(anime.Title);
+					yield return anime;
+				}
+			}
+		} 
 
 		public override AnimeInfo GetAnimeData(Anime anime)
 		{

@@ -29,17 +29,16 @@ namespace AnimeDesktop
 
 		private void Window_Loaded(object sender, RoutedEventArgs e)
 		{
-			//TODO: ListBox not scrollable (Stackpanel height not set to parent)
 			Visibility = Visibility.Hidden;
 			MessageDialog.ShowMessage("Starting", "Initializing...");
-			var anime = new AnimeMobile();
+			Cache.AnimeMobile = new AnimeMobile();
 			new Thread(() =>
 			{
-				anime.Initialize();
-				MessageDialog.ShowMessage("Starting", "Parsing " + anime.Animes.Count + " Animes");
+				Cache.AnimeMobile.Initialize();
+				MessageDialog.ShowMessage("Starting", "Parsing " + Cache.AnimeMobile.Animes.Count + " Animes");
 				InvokeUi(() =>
 				{
-					foreach (var anim in anime.Animes)
+					foreach (var anim in Cache.AnimeMobile.Animes)
 						AnimeListBox.Items.Add(anim.Title);
 					MessageDialog.ShowMessage("Starting", "Done!");
 					Thread.Sleep(1500);
@@ -54,6 +53,18 @@ namespace AnimeDesktop
 		public void InvokeUi(Action action)
 		{
 			Application.Current.Dispatcher.Invoke(action);
+		}
+
+		private void SearchOnClick(object sender, RoutedEventArgs e)
+		{
+			var window = new SearchForm();
+
+			ContentWindow.Children.Add(window);
+		}
+
+		private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+		{
+			Application.Current.Shutdown();
 		}
 	}
 }

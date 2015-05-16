@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AnimeDesktop"
         mc:Ignorable="d"
-        Title="AnimeDesktop" Height="350" Width="525" Loaded="Window_Loaded" ShowInTaskbar="False">
+        Title="AnimeDesktop" Height="350" Width="525" Loaded="Window_Loaded" ShowInTaskbar="False" Closing="Window_Closing">
 	<Grid>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="Auto"/>
@@ -18,7 +18,7 @@
 					<ListBox x:Name="AnimeListBox" Margin="0,0,0,2"  Background="LightGray">
 					</ListBox>
 				</Expander>
-				<Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+				<Button Click="SearchOnClick" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
         Content="Search Animes" />
 			</StackPanel>
 		</Grid>

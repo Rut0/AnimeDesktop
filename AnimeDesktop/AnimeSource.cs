@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace AnimeDesktop
 {
-	internal abstract class AnimeSource
+	public abstract class AnimeSource
 	{
 		public List<Anime> Animes;
 		public abstract void Initialize();
 
 		public abstract IEnumerable<Anime> GetAnimes();
+		public abstract IEnumerable<Anime> SearchAnime(string term);
 		public abstract AnimeInfo GetAnimeData(Anime anime);
 
 		public abstract string[] GetEpisodeLinks(int episodeId);

@@ -1,0 +1,43 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:AnimeDesktop.Styles">
+	<Style TargetType="{x:Type ListBoxItem}">
+		<Setter Property="OverridesDefaultStyle" Value="True"></Setter>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="ListBoxItem">
+					<Border BorderBrush="Black" BorderThickness="1">
+						<Grid>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="Auto"/>
+								<ColumnDefinition Width="*"/>
+							</Grid.ColumnDefinitions>
+							<Image
+							Grid.Column="0"
+							Source="{Binding Path=UriSource, Mode=OneWay}"
+							Stretch="UniformToFill"
+							Width="100" Height="120"
+							HorizontalAlignment="Left"
+							VerticalAlignment="Top"
+							Margin="5"
+						   />
+							<Grid Grid.Column="1">
+								<StackPanel>
+									<TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap">
+										<Bold>Title:</Bold> <Run Text="{Binding Path=Title, Mode=OneWay}"/>
+									</TextBlock>
+									<TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap">
+										<Bold>Description:</Bold> <Run Text="{Binding Path=Description, Mode=OneWay}"/>
+									</TextBlock>
+									<TextBlock HorizontalAlignment="Stretch">
+										<Bold>Episode Count:</Bold> <Run Text="{Binding Path=EpisodeCount, Mode=OneWay}"/>
+									</TextBlock>
+								</StackPanel>
+							</Grid>
+						</Grid>
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+</ResourceDictionary>
