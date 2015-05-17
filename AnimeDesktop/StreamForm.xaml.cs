@@ -20,9 +20,34 @@ namespace AnimeDesktop
 	/// </summary>
 	public partial class StreamForm : UserControl
 	{
-		public StreamForm()
+		private readonly string _url;
+		public StreamForm(string url)
 		{
+			_url = url;
 			InitializeComponent();
+		}
+
+		public void Stop()
+		{
+			try
+			{
+				MediaPlayer.Pause();
+			}
+			catch
+			{
+			}
+		}
+
+		public void Play()
+		{
+			try
+			{
+				MediaPlayer.Play();
+			}
+			catch
+			{
+
+			}
 		}
 	}
 }

@@ -57,9 +57,12 @@ namespace AnimeDesktop.Sources
 			return JsonConvert.DeserializeObject<AnimeInfo>(data);
 		}
 
-		public override string[] GetEpisodeLinks(int episodeId)
+		public override string GetEpisodeLink(int episodeId)
 		{
-			throw new NotImplementedException();
+			var link = "http://www.animemobile.com/service/v2/mobile2.php?&episode_id=" + episodeId;
+			var json = new WebClient().DownloadString(link);
+			var data = JsonConvert.DeserializeObject<List<JObject>>(json);
+			return "http://st2.anime1.com" + data.FirstOrDefault(obj => obj["Title"].ToString() == "English Subbed")?["link"];
 		}
 	}
 }

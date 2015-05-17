@@ -5,8 +5,64 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AnimeDesktop"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-            
-    </Grid>
+			 Margin="5"
+             d:DesignHeight="300" d:DesignWidth="300" Initialized="UserControl_Initialized">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="*"/>
+		</Grid.RowDefinitions>
+		<Grid Grid.Row="0">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto"/>
+				<ColumnDefinition Width="*"/>
+			</Grid.ColumnDefinitions>
+			<Image
+							Grid.Column="0"
+							Source="{Binding Path=UriSource}"
+							Stretch="UniformToFill"
+							Width="100" Height="120"
+							HorizontalAlignment="Left"
+							VerticalAlignment="Top"
+							Margin="5"
+						   />
+			<Grid Grid.Column="1">
+				<StackPanel>
+					<TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap">
+										<Bold>Title:</Bold> <Run Text="{Binding Path=Title}"/>
+					</TextBlock>
+					<TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap">
+										<Bold>Description:</Bold> <Run Text="{Binding Path=Description}"/>
+					</TextBlock>
+					<TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap">
+										<Bold>Type:</Bold> <Run Text="{Binding Path=Type}"/>
+					</TextBlock>
+					<TextBlock HorizontalAlignment="Stretch">
+										<Bold>Episode Count:</Bold> <Run Text="{Binding Path=EpisodeCount}"/>
+					</TextBlock>
+					<TextBlock HorizontalAlignment="Stretch">
+										<Bold>Status:</Bold> <Run Text="{Binding Path=Status}"/>
+					</TextBlock>
+					<TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap">
+										<Bold>Genre:</Bold> <Run Text="{Binding Path=Genre}"/>
+					</TextBlock>
+					<TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap">
+										<Bold>Age Rating:</Bold> <Run Text="{Binding Path=AgeRating}"/>
+					</TextBlock>
+					<TextBlock HorizontalAlignment="Stretch" TextWrapping="Wrap">
+										<Bold>Language:</Bold> <Run Text="{Binding Path=Language}"/>
+					</TextBlock>
+				</StackPanel>
+			</Grid>
+		</Grid>
+		<Grid Grid.Row="1">
+			<ListBox x:Name="EpisodeBox" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+				<ListBox.ItemContainerStyle>
+				<Style TargetType="{x:Type ListBoxItem}" BasedOn="{StaticResource {x:Type ListBoxItem}}">
+					<EventSetter Event="MouseDoubleClick" Handler="EpisodeDoubleClick"/>
+				</Style>
+			</ListBox.ItemContainerStyle>
+			</ListBox>
+		</Grid>
+	</Grid>
 </UserControl>

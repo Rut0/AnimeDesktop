@@ -15,6 +15,6 @@ namespace AnimeDesktop
 		public abstract IEnumerable<Anime> SearchAnime(string term);
 		public abstract AnimeInfo GetAnimeData(Anime anime);
 
-		public abstract string[] GetEpisodeLinks(int episodeId);
+		public abstract string GetEpisodeLink(int episodeId);
 	}
 }

@@ -57,14 +57,33 @@ namespace AnimeDesktop
 
 		private void SearchOnClick(object sender, RoutedEventArgs e)
 		{
-			var window = new SearchForm();
-
+			var window = new SearchForm(this);
+			if (ContentWindow.Children.Count > 0)
+				ContentWindow.Children.Clear();
 			ContentWindow.Children.Add(window);
 		}
 
 		private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
 		{
 			Application.Current.Shutdown();
+		}
+
+		public void ShowAnime(Anime anime)
+		{
+			var info = Cache.AnimeMobile.GetAnimeData(anime);
+			if (ContentWindow.Children.Count > 0)
+				ContentWindow.Children.Clear();
+			var view = new AnimeView(info, this);
+			ContentWindow.Children.Add(view);
+		}
+
+		public void PlayEpisode(string url)
+		{
+			if (ContentWindow.Children.Count > 0)
+				ContentWindow.Children.Clear();
+			var form = new StreamForm(url);
+			ContentWindow.Children.Add(form);
+			form.Play();
 		}
 	}
 }
