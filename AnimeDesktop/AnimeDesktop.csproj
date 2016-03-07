@@ -70,8 +70,8 @@
       <DependentUpon>SearchForm.xaml</DependentUpon>
     </Compile>
     <Compile Include="Sources\AnimeMobile.cs" />
-    <Compile Include="StreamForm.xaml.cs">
-      <DependentUpon>StreamForm.xaml</DependentUpon>
+    <Compile Include="StreamWindow.xaml.cs">
+      <DependentUpon>StreamWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="AnimeView.xaml">
       <SubType>Designer</SubType>
@@ -100,7 +100,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="StreamForm.xaml">
+    <Page Include="StreamWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

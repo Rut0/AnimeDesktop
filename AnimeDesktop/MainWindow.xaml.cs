@@ -79,11 +79,9 @@ namespace AnimeDesktop
 
 		public void PlayEpisode(string url)
 		{
-			if (ContentWindow.Children.Count > 0)
-				ContentWindow.Children.Clear();
-			var form = new StreamForm(url);
-			ContentWindow.Children.Add(form);
-			form.Play();
+			var form = new StreamWindow(url);
+			form.Visibility = Visibility.Visible;
+			form.Start();
 		}
 	}
 }

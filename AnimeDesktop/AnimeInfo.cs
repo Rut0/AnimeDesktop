@@ -29,7 +29,7 @@ namespace AnimeDesktop
 		public Categories Categories { get; set; }
 		public List<string> Titles { get; set; }
 		public object SideStories { get; set; }
-		public List<object> ContentAlternatives { get; set; }
+		public object ContentAlternatives { get; set; }
 		public string Image { get; set; }
 		public int Content_ID { get; set; }
 		public List<Episode> Episodes { get; set; }
