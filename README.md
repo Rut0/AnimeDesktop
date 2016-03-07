@@ -7,3 +7,6 @@ Current sources:
 Sources to add:
   * gogoanime
   * kissanime
+
+
+## You must install VLC >= 1.2 for this to work
