@@ -15,7 +15,7 @@
 		<Grid x:Name="NavGrid" Grid.Column="0" HorizontalAlignment="Center" Margin="10">
 			<StackPanel Height="{Binding Path=ActualHeight, ElementName=NavGrid}">
 				<Expander Header="All Animes" x:Name="MenuExpander" >
-					<ListBox x:Name="AnimeListBox" Margin="0,0,0,2"  Background="LightGray">
+                    <ListBox Height="{Binding Path=ActualHeight, ElementName=NavGrid}" x:Name="AnimeListBox" Margin="0,0,0,2"  Background="LightGray" MouseDoubleClick="AnimeListBox_OnMouseDoubleClick" ScrollViewer.VerticalScrollBarVisibility="Visible">
 					</ListBox>
 				</Expander>
 				<Button Click="SearchOnClick" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"

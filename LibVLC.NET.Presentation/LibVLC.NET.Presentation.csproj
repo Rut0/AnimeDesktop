@@ -61,6 +61,12 @@
     <Compile Include="VideoStream.cs" />
     <AppDesigner Include="Properties\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LibVLC.NET\LibVLC.NET.csproj">
+      <Project>{bb06dff7-4f41-4b9d-a3c3-3b6d2b8702b6}</Project>
+      <Name>LibVLC.NET</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

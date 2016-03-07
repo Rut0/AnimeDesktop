@@ -83,5 +83,13 @@ namespace AnimeDesktop
 			form.Visibility = Visibility.Visible;
 			form.Start();
 		}
+
+	    private void AnimeListBox_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
+	    {
+	        string name = AnimeListBox.SelectedItems[0] as string;
+	        var anime = Cache.AnimeMobile.Animes.First(a => a.Title == name);
+	        ShowAnime(anime);
+	        MenuExpander.IsExpanded = false;
+	    }
 	}
 }

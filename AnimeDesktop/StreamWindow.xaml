@@ -5,20 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AnimeDesktop"
         mc:Ignorable="d"
+        xmlns:vlc="clr-namespace:LibVLC.NET.Presentation;assembly=LibVLC.NET.Presentation"
         Title="StreamWindow" Height="300" Width="300">
     <Grid>
-		<Grid.RowDefinitions>
-			<RowDefinition Height="*"/>
-			<RowDefinition Height="Auto"/>
-		</Grid.RowDefinitions>
-        <MediaElement
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <vlc:MediaElement
 			Grid.Row="0"
 		    x:Name="MediaPlayer"
 		    HorizontalAlignment="Stretch"
 			MouseLeftButtonUp="MediaPlayer_OnMouseLeftButtonUp"
-		    VerticalAlignment="Stretch"/>     
-		<Grid Grid.Row="1" Margin="5">
-			<TextBlock x:Name="LogBlock">Progress: <Run Text="{Binding Path=DownloadProgress, ElementName=MediaPlayer, Mode=OneWay}"></Run></TextBlock>
-		</Grid>
+		    VerticalAlignment="Stretch"/>
+        <Grid Grid.Row="1" Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Slider x:Name="SliderBar" Grid.Row="0"></Slider>
+            <TextBlock Grid.Row="1" x:Name="LogBlock">Progress: <Run Text="{Binding Path=Position, ElementName=MediaPlayer, Mode=OneWay}"></Run></TextBlock>
+        </Grid>
     </Grid>
 </Window>
