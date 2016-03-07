@@ -1,5 +1,5 @@
 # AnimeDesktop
-Desktop Interface of AnimeFreak/AnimeMobile
+Desktop Streaming App interface of anime streaming websites
 
 Current sources: 
   * AnimeMobile.com
