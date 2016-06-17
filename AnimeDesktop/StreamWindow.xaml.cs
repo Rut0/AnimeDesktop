@@ -38,6 +38,7 @@ namespace AnimeDesktop
             MediaPlayer.Opened += MediaPlayer_Opened;
             MediaPlayer.PositionChanged += MediaPlayer_PositionChanged;
             SliderBar.ValueChanged += SliderBar_ValueChanged;
+            
             //MediaPlayer. = MediaState.Manual;
         }
 

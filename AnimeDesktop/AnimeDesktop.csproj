@@ -61,6 +61,9 @@
       <DependentUpon>AnimeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Cache.cs" />
+    <Compile Include="Controls\CircleSlider.xaml.cs">
+      <DependentUpon>CircleSlider.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Extensions.cs" />
     <Compile Include="Helpers\WindowBehavior.cs" />
     <Compile Include="MessageDialog.xaml.cs">
@@ -74,6 +77,10 @@
       <DependentUpon>StreamWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="AnimeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\CircleSlider.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
